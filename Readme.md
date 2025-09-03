@@ -1,189 +1,159 @@
-📒 Full-Stack Note-Taking Application
+# 🚀 Full Stack Note-Taking Application (MERN + TypeScript)
 
-A full-stack note-taking application built with React (TypeScript), Node.js (TypeScript), and MongoDB.
-Users can sign up/login with email + OTP or Google Authentication, then create, view, and delete notes securely.
+This is a complete **Full Stack Note-Taking Web Application** built using the **MERN stack** (MongoDB, Express.js, React, Node.js) with **TypeScript**. It provides a secure authentication system using **Email + OTP** and **Google OAuth**, allowing users to create, view, and delete notes with a clean and responsive interface.  
 
-✨ Features
+Whether you’re learning authentication with JWTs or building production-ready MERN apps, this project provides a strong foundation.  
 
-✅ User signup with Email + OTP
-✅ Login with OTP or Google (if used for signup)
-✅ JWT Authentication for secured APIs
-✅ Create and delete notes (per user)
-✅ Responsive UI with Tailwind CSS
-✅ Clean dashboard with user info + recent notes
-✅ Error handling for invalid inputs, OTP failures, and API errors
-✅ Mobile-friendly design (matches provided Figma / assets)
+---
 
-🛠️ Tech Stack
-Frontend
+## 🎯 Project Objectives
 
-React (TypeScript)
+- **🔐 Implement secure authentication** with **Email + OTP** and **Google OAuth**.  
+- **📝 Provide a personal notes system** with create, view, and delete operations.  
+- **⚡ Ensure JWT-based route protection** for secure API endpoints.  
+- **🎨 Build a responsive and mobile-friendly UI** with Tailwind CSS.  
+- **🛠 Maintain modular and reusable code** with TypeScript in both frontend & backend.  
+- **☁️ Enable cloud deployment** via MongoDB Atlas, Render/Vercel, and Netlify.  
 
-Tailwind CSS (for styling)
+---
 
-React Router (for navigation)
+## 🚀 Core Features
 
-Axios (for API calls)
+- **User Signup & Login** (Email OTP or Google Auth)  
+- **JWT Authentication & Authorization**  
+- **Create, View & Delete Notes** (per user)  
+- **Dashboard with recent notes**  
+- **Error handling** for invalid inputs & API failures  
+- **Responsive UI** with Tailwind CSS  
+- **Clean folder structure** for scalability  
 
-Lucide Icons (for icons)
+---
 
-Backend
+## 🖥️ Tech Stack
 
-Node.js + Express (TypeScript)
+- **Frontend:** React (TypeScript), React Router, Axios, Tailwind CSS, Lucide Icons  
+- **Backend:** Node.js, Express.js, TypeScript  
+- **Database:** MongoDB (Mongoose)  
+- **Authentication:** JSON Web Tokens (JWT), Google OAuth 2.0  
+- **Deployment Ready:** Environment variables (`.env`), modular folder structure  
 
-JWT (for authentication)
+---
 
-Mongoose / Prisma (depending on DB choice)
+## ⚙️ Local Installation & Setup Guide
 
-Database
+### ✅ Prerequisites
+| Tool        | Purpose                   | Download Link |
+|-------------|---------------------------|---------------|
+| Node.js     | Runtime for frontend+backend | [https://nodejs.org/](https://nodejs.org/) |
+| Git         | Clone repository          | [https://git-scm.com/](https://git-scm.com/) |
+| MongoDB Atlas | Cloud database          | [https://www.mongodb.com/cloud/atlas](https://www.mongodb.com/cloud/atlas) |
+| Code Editor | VS Code recommended       | [https://code.visualstudio.com/](https://code.visualstudio.com/) |
 
-MongoDB (recommended)
-(You may use MySQL/PostgreSQL if preferred)
+---
 
-📂 Project Structure
-📦 note-app
- ┣ 📂 backend
- ┃ ┣ 📂 src
- ┃ ┃ ┣ 📜 index.ts        # Entry point (Express server)
- ┃ ┃ ┣ 📜 routes.ts       # Auth + Notes routes
- ┃ ┃ ┣ 📜 models.ts       # User + Notes schema
- ┃ ┃ ┣ 📜 middleware.ts   # JWT middleware
- ┃ ┃ ┗ 📜 controllers.ts  # Business logic
- ┃ ┣ 📜 package.json
- ┃ ┣ 📜 tsconfig.json
- ┃ ┗ 📜 .env
- ┣ 📂 frontend
- ┃ ┣ 📂 src
- ┃ ┃ ┣ 📂 components      # React components
- ┃ ┃ ┣ 📂 pages           # Signup, Login, Welcome, Notes
- ┃ ┃ ┣ 📜 api.ts          # Axios instance
- ┃ ┃ ┣ 📜 App.tsx         # Router setup
- ┃ ┃ ┗ 📜 index.tsx
- ┃ ┣ 📜 package.json
- ┃ ┣ 📜 tailwind.config.js
- ┃ ┗ 📜 tsconfig.json
- ┣ 📜 README.md
- ┗ 📜 .gitignore
+### 📥 Step 1: Clone the Project
+```bash
+git clone https://github.com/Rahul17903/Highway-Delite-internship.git
+```
 
-⚙️ Setup Instructions
-1️⃣ Clone the Repository
-git clone <your-repo-url>
-cd note-app
+---
 
-2️⃣ Backend Setup
-cd backend
+### 📦 Step 2: Setup Backend
+```bash
+cd server
 npm install
+```
 
+Create a `.env` file in `/backend`:
+```env
+PORT = 5000
+MONGO_URI = your database url
+JWT_SECRET= jayshreeram
+GOOGLE_CLIENT_ID = your google client id 
+GOOGLE_CLIENT_SECRET = your client secret
+EMAIL_USER = user email
+EMAIL_PASS = email user password 
+```
 
-Create a .env file (copy from .env.example):
-
-PORT=5000
-MONGO_URI=mongodb+srv://<user>:<pass>@cluster.mongodb.net/notes
-JWT_SECRET=your_secret_key
-GOOGLE_CLIENT_ID=your_google_client_id
-GOOGLE_CLIENT_SECRET=your_google_client_secret
-CLIENT_URL=http://localhost:5173
-
-
-Run the backend:
-
+Run backend:
+```bash
 npm run dev
+```
 
-3️⃣ Frontend Setup
+---
+
+### 💻 Step 3: Setup Frontend
+```bash
 cd frontend
 npm install
+```
 
-
-Update src/api.ts with your backend URL:
-
-import axios from "axios";
-
+Update `/frontend/src/api.ts`:
+```ts
 const api = axios.create({
-  baseURL: "http://localhost:5000/api", // change to deployed URL
+  baseURL: "http://localhost:5000/api",
   withCredentials: true,
 });
+```
 
-export default api;
-
-
-Run the frontend:
-
+Run frontend:
+```bash
 npm run dev
+```
 
-🌐 Deployment
-Backend
+---
 
-Deploy on Render, Railway, or Vercel Functions
+### ☁️ Step 4: MongoDB Atlas Setup
+1. Create a free cluster in **MongoDB Atlas**  
+2. Add DB user with username & password  
+3. Whitelist IP → `0.0.0.0/0` (Allow all)  
+4. Copy connection string → paste into `.env` as `MONGO_URI`  
 
-Use MongoDB Atlas for DB
+---
 
-Frontend
+## 🧱 Project Structure
+```bash
+note-app/
+│
+├── backend/                  # Express backend + MongoDB
+│   ├── src/
+│   │   ├── index.ts          # Entry point (Express server)
+│   │   ├── routes.ts         # Auth & Notes routes
+│   │   ├── models.ts         # User & Notes schemas
+│   │   ├── middleware.ts     # JWT authentication middleware
+│   │   └── controllers.ts    # Business logic
+│   └── .env                  # Backend config
+│
+├── frontend/                 # React frontend + Tailwind
+│   ├── src/
+│   │   ├── components/       # Reusable UI components
+│   │   ├── pages/            # Signup, Login, Dashboard, Notes
+│   │   ├── api.ts            # Axios instance
+│   │   └── App.tsx           # Router setup
+│   └── .env                  # Frontend config
+│
+└── README.md                 # Project guide
+```
 
-Deploy React app on Vercel or Netlify
+---
 
-🔑 API Endpoints
-Auth
+## 🔗 Live Link
+[Click Here](https://your-deployed-url.vercel.app)  
 
-POST /auth/signup → send OTP to email
+---
 
-POST /auth/verify-otp → verify OTP + return JWT
+## 📄 License
+This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.  
 
-POST /auth/google → login/signup with Google
+---
 
-Notes
+## ☎︎ Contact
+If you have any questions or need further clarification, feel free to reach out:  
 
-GET /notes → fetch user notes (JWT required)
+- **💌 Email:** rahulghosh17903@gmail.com  
+- **🕵️‍♂️ LinkedIn:** [Your LinkedIn](https://www.linkedin.com/in/rahul-ghosh-b377b228a/)  
+- **🌐 GitHub:** [your-username](https://github.com/Rahul17903)  
 
-POST /notes → create a new note
+---
 
-DELETE /notes/:id → delete a note
-
-📸 Screens / Pages
-
-Signup Page – Signup with Email/Google → OTP Verification
-
-Login Page – Login with OTP/Google
-
-Welcome Page – Show user info, create note button, preview recent notes
-
-Notes Page – Full CRUD (create + delete notes)
-
-🧩 Example .env.example
-# --------------------------
-# Backend Configuration
-# --------------------------
-
-# Port where backend will run
-PORT=5000
-
-# MongoDB connection string (use MongoDB Atlas or local Mongo)
-MONGO_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/notes
-
-# JWT secret key (any strong random string)
-JWT_SECRET=your_jwt_secret_here
-
-# Google OAuth credentials
-GOOGLE_CLIENT_ID=your_google_client_id_here
-GOOGLE_CLIENT_SECRET=your_google_client_secret_here
-
-# CORS Allowed Origin
-CLIENT_URL=http://localhost:5173
-
-✅ Assignment Notes
-
-All inputs are validated
-
-JWT is used for protecting routes
-
-UI matches the design provided in the assignment (hwdlte.com link)
-
-Commits are made per feature
-
-Deployment links will be provided after deploy
-
-👩‍💻 Author
-
-Your Name
-📧 your.email@example.com
-
-🔗 GitHub: your-username
+⭐ If you found this project helpful, don’t forget to give it a star!  
